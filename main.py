@@ -18,6 +18,11 @@ def calcular_raizes(a, b, c):
         parte_imag = math.sqrt(-delta) / (2 * a)
         return f"As raízes complexas são: x1 = {parte_real} + {parte_imag}i, x2 = {parte_real} - {parte_imag}i"
 
+
+# Erro de Referência à Variável no main.py
+# No bloco try-except, se houver um erro na conversão dos valores, a, b, e c podem não ser definidos antes de serem usados na função calcular_raizes().
+# Correção: Certificar-se de que os valores só são utilizados após uma conversão bem-sucedida.
+
 # Rota principal que exibe o formulário e calcula as raízes
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -31,6 +36,9 @@ def index():
             resultado = calcular_raizes(a, b, c)
         except ValueError:
             resultado = "Por favor, insira valores numéricos válidos."
+            # Erro no nome do template no Flask
+#O arquivo HTML está salvo como paginas.html, mas no código Python (main.py), ele está sendo referenciado como pagina.html.
+#Correção: Alterar o nome do template no render_template() para corresponder ao nome correto do arquivo.
     
     # Renderiza o template passando o resultado
     return render_template('pagina.html', resultado=resultado)
