@@ -10,6 +10,9 @@
 
     <p>Insira os valores para a equação quadrática ax² + bx + c = 0</p>
 
+    <!-- Melhorando a Segurança-->
+     <!--O método GET não deve ser permitido para envio de dados sensíveis, mas o código atual não o restringe.-->
+     <!--Solução: Adicionar um csrf_token para evitar ataques CSRF ao usar Flask-WTF ou incluir autocomplete="off" nos inputs.-->
     <!-- Formulário para inserir os valores de a, b e c -->
     <form action="/" method="POST">
         <label for="a">Valor de a:</label>
